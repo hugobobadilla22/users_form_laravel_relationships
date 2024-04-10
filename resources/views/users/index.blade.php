@@ -15,6 +15,14 @@
                     <li>{{ $role->name }}</li>
                 @endforeach
             </ul>
+            <div class="actions">
+                <a href="{{ route('user.edit', $user->id) }}">Edit</a>
+                <form action="{{ route('user.destroy', $user->id) }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <input type="submit" value="Delete">
+                </form>
+            </div>
         </div>
     @empty
         <p>No data.</p>
